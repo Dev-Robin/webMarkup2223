@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+.titlebar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .navigation {
     background-color: #4571b0;
     color: black;
@@ -37,6 +43,20 @@ nav ul li a{
 
 /*Mobile*/
 @media (width < 480px) {
+    .titlebar {
+        flex-direction: row;
+    }
+
+    #title {
+        flex-direction: column;
+    }
+
+    .navigation {
+        display: flex;
+        align-items: flex-end;
+        margin-left: auto;
+    }
+
     .hamburger-container {
         display: flex;
         margin-left: auto;
@@ -59,6 +79,7 @@ nav ul li a{
         z-index: 9999;
         position: relative;
         opacity: 0;
+        
     }
 
     .hamburger-container span {
@@ -83,5 +104,18 @@ nav ul li a{
 
     .navigation input:checked ~ ul {
         display: block;
+    }
+
+    /*Make the hamburger menu turn into a cross when clicked*/
+    .navigation input:checked ~ .hamburger-container #hamburger1 {
+        transform: rotate(-45deg) translate(-5px,6px);
+    }
+
+    .navigation input:checked ~ .hamburger-container #hamburger2 {
+        opacity: 0;
+    }
+
+    .navigation input:checked ~ .hamburger-container #hamburger3 {
+        transform: rotate(45deg) translate(-5px,-6px);
     }
 }
