@@ -1,11 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+
+:root {
+    --navbar: #4472C4;
+    --main-color1: #FFF2CC;
+    --main-color2: #E2EFDA;
+    --main-color3: #A6C7E6;
+    --main-color4: #C6E0B4;
+    --main-color5: #DDEBF7;
+    --main-color6: #FCE4D6;
+    --footer-color: #D6DCE4;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 .titlebar {
+    background-color: var(--navbar);
     grid-area: titlebar;
+}
+
+.titlebar #title {
+    font-family: 'Notable', sans-serif;
+    font-size: 0.5em;
 }
 
 .titlebar img {
@@ -22,6 +42,7 @@
 
 .titlebar li {
     display: inline;
+    padding: 5px;
 }
 
 .titlebar a {
@@ -29,12 +50,23 @@
     color: black;
 }
 
+.titlebar a:hover {
+    color: white;
+}
+
 .grid-wrapper {
+    margin: 0 5px;
     grid-area: main-content;
     grid-template-columns: 45% 35% auto;
 }
 
+article {
+    padding: 5px;
+}
+
 aside {
+    margin: 0 5px;
+    height: 150px;
     grid-area: aside;
     display: grid;
     grid-template-columns: 45% 35% auto;
@@ -42,9 +74,11 @@ aside {
 
 footer {
     grid-area: footer;
+    background-color: var(--footer-color);
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     display: grid;
     grid-template-areas: 
         'titlebar titlebar titlebar'
@@ -59,26 +93,32 @@ body {
 
 #article1 {
     grid-area: article1;
+    background-color: var(--main-color1);
 }
 
 #article2 {
     grid-area: article2;
+    background-color: var(--main-color2);
 }
 
 #article3 {
     grid-area: article3;
+    background-color: var(--main-color3);
 }
 
 #article4 {
     grid-area: article4;
+    background-color: var(--main-color4);
 }
 
 #article5 {
     grid-area: article5;
+    background-color: var(--main-color5);
 }
 
 #article6 {
     grid-area: article6;
+    background-color: var(--main-color6);
 }
 
 .grid-wrapper {
@@ -95,8 +135,8 @@ body {
 }
 
 aside img {
-    width: 150px;
-    height: auto;
+    width: auto;
+    height: 150px;
 }
 
 footer .copy-right {
@@ -108,17 +148,14 @@ footer p {
     display: inline-block;
 }
 
-footer img {
-    width: 50px;
-    height: auto;
-}
-
-footer img:hover {
-    width: 500px;
-}
-
 .cookie-statment {
-    float: right;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    color: #FFF;
+    background-color: #FA0;
+    opacity: 0.5;
+    z-index: 9999;
 }
 
 /* tablet */
@@ -185,8 +222,20 @@ footer img:hover {
     }
 
     .titlebar input, .titlebar .hamburger-container {
-        display: block;
+        display: grid;
         grid-area: hamburger;
+    }
+
+    .navigation ul {
+        grid-area: nav-links;
+    }
+
+    .navigation {
+        grid-area: nav;
+        display: grid;
+        grid-template-areas: 
+            'nav-links'
+            'hamburger';
     }
 
     .titlebar .title {
@@ -196,19 +245,54 @@ footer img:hover {
     .titlebar {
         display: grid;
         grid-template-areas: 
-            'title hamburger';
+            'title nav';
     }
 
     .navigation input {
         width: 100%;
         height: 100%;
+        z-index: 9999;
+        opacity: 0;
+    }
+
+    .hamburger-container {
+        display: grid;
+        grid-template-columns: auto;
     }
 
     .hamburger-container span {
-        width: 80%;
-        height: 3px;
+        width: 40%;
+        height: 5px;
         margin: 3px;
-        background-color: black;
+        background-color: white;
         z-index: 9998;
+    }
+
+    .navigation input:checked ~ ul {
+        position: absolute;
+        background-color: var(--navbar);
+        padding: 10px;
+        padding-right: 30px;
+        top: 42px;
+        right: 0;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .navigation li {
+        margin: 50px;
+    }
+
+    /*Make the hamburger menu turn into a cross when clicked*/
+    .navigation input:checked ~ .hamburger-container #hamburger1 {
+        transform: rotate(-45deg) translate(-10px,6px);
+    }
+
+    .navigation input:checked ~ .hamburger-container #hamburger2 {
+        opacity: 0;
+    }
+
+    .navigation input:checked ~ .hamburger-container #hamburger3 {
+        transform: rotate(45deg) translate(-10px,-6px);
     }
 }
