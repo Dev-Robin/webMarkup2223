@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+
+:root {
+    --navbar: #4472C4;
+    --main-color1: #FFF2CC;
+    --main-color2: #E2EFDA;
+    --main-color3: #A6C7E6;
+    --main-color4: #C6E0B4;
+    --main-color5: #DDEBF7;
+    --main-color6: #FCE4D6;
+    --footer-color: #D6DCE4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.titlebar {
+    background-color: var(--navbar);
+    grid-area: titlebar;
+}
+
+.titlebar #title {
+    font-family: 'Notable', sans-serif;
+    font-size: 0.5em;
+}
+
+.titlebar img {
+    width: 50px;
+    height: auto;
+}
+
+.titlebar ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+}
+
+.titlebar li {
+    display: inline;
+    padding: 5px;
+}
+
+.titlebar a {
+    text-decoration: none;
+    color: black;
+}
+
+.titlebar a:hover {
+    color: white;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+        'form form';
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    grid-template-columns: 45% 35% auto;
+    display: grid;
+    grid-template-areas: 
+        'titlebar titlebar titlebar'
+        'main main aside'
+        'main main aside'
+        'footer footer footer';
+}
+
+form {
+    grid-area: form;
+    margin: 5px;
+}
+
+form fieldset > * {
+    display: block;
+    margin: 5px;
+}
+
+form textarea {
+    resize: none;
+    padding: 5px;
+}
+
+form input[type="text"], input[type="email"] {
+    padding: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #436efa;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: #436efa;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+    background-color: var(--footer-color);
+}
+
+
+.titlebar input, .titlebar .hamburger-container {
+    display: none;
+}
+
+aside img {
+    width: auto;
+    height: 150px;
+    display: block;
+}
+
+footer .copy-right {
+    left: 50%;
+    position: relative;
+}
+
+footer p {
+    display: inline-block;
+}
+
+.cookie-statment {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    color: #FFF;
+    background-color: #FA0;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+/* tablet */
+@media screen and (min-width: 481px) and (max-width: 1279px){
+
+}
+
+/* mobile */
+@media screen and (max-width: 480px) {
+    body {
+        grid-template-columns: auto auto;
+        grid-template-areas: 
+        'titlebar titlebar'
+        'main main'
+        'aside aside'
+        'aside aside'
+        'aside aside'
+        'footer footer';
+    }
+
+    main {
+        grid-template-columns: auto;
+        grid-template-areas: 
+            'form form';
+    }
+
+    aside {
+        grid-template-columns: auto;
+    }
+
+
+    .navigation ul, .titlebar img {
+        display: none;
+    }
+
+    .titlebar input, .titlebar .hamburger-container {
+        display: grid;
+        grid-area: hamburger;
+    }
+
+    .navigation ul {
+        grid-area: nav-links;
+    }
+
+    .navigation {
+        grid-area: nav;
+        display: grid;
+        grid-template-areas: 
+            'nav-links'
+            'hamburger';
+    }
+
+    .titlebar .title {
+        grid-area: title;
+    }
+
+    .titlebar {
+        display: grid;
+        grid-template-areas: 
+            'title nav';
+    }
+
+    .navigation input {
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        opacity: 0;
+    }
+
+    .hamburger-container {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .hamburger-container span {
+        width: 40%;
+        height: 5px;
+        margin: 3px;
+        background-color: white;
+        z-index: 9998;
+    }
+
+    .navigation input:checked ~ ul {
+        position: absolute;
+        background-color: var(--navbar);
+        padding: 10px;
+        padding-right: 30px;
+        top: 42px;
+        right: 0;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .navigation li {
+        margin: 50px;
+    }
+
+    /*Make the hamburger menu turn into a cross when clicked*/
+    .navigation input:checked ~ .hamburger-container #hamburger1 {
+        transform: rotate(-45deg) translate(-10px,6px);
+    }
+
+    .navigation input:checked ~ .hamburger-container #hamburger2 {
+        opacity: 0;
+    }
+
+    .navigation input:checked ~ .hamburger-container #hamburger3 {
+        transform: rotate(45deg) translate(-10px,-6px);
+    }
+}
