@@ -75,6 +75,9 @@ aside {
 footer {
     grid-area: footer;
     background-color: var(--footer-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 body {
