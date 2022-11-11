@@ -1,5 +1,5 @@
-Robin Stulp
-695739
-Inf1A
-https://dev-robin.github.io/webMarkup2223/
-https://github.com/Dev-Robin/webMarkup2223
+Student name: Robin Stulp
+Student number: 695739
+Student class: Inf1A
+URL student GitHub website: https://dev-robin.github.io/webMarkup2223/
+URL student GitHub repository: https://github.com/Dev-Robin/webMarkup2223
