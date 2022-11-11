@@ -26,6 +26,7 @@
 .titlebar #title {
     font-family: 'Notable', sans-serif;
     font-size: 0.5em;
+    text-transform: uppercase;
 }
 
 .titlebar img {
@@ -53,6 +54,10 @@
     color: white;
 }
 
+.titlebar a:active {
+    color: hotpink;
+}
+
 .titlebar input, .titlebar .hamburger-container {
     display: none;
 }
@@ -67,6 +72,7 @@ main {
     display: flex;
     flex-direction: column;
     flex-basis: 75%;
+    margin: 5px;
 }
 
 main .video {
@@ -84,6 +90,10 @@ main .homeArticle {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    letter-spacing: normal;
+    line-height: 1.5em;
+    text-indent: normal;
+    word-spacing: normal;
 }
 
 main .homeArticle header {
@@ -102,6 +112,7 @@ main .homeArticle img{
 aside {
     padding-left: 30px;
     padding-top: 30px;
+    padding-bottom: 50px;
 }
 
 footer {

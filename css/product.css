@@ -26,6 +26,7 @@
 .titlebar #title {
     font-family: 'Notable', sans-serif;
     font-size: 0.5em;
+    text-transform: uppercase;
 }
 
 .titlebar img {
@@ -54,49 +55,26 @@
     color: white;
 }
 
-main {
-    grid-area: main;
-    display: grid;
-    grid-template-areas: 
-        'article article'
-        'pricing-table pricing-table';
+.titlebar a:active {
+    color: hotpink;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    display: grid;
-    grid-template-areas: 
-        'titlebar titlebar titlebar'
-        'main main aside'
-        'main main aside'
-        'footer footer footer';
+.grid-wrapper {
+    margin: 0 5px;
+    grid-area: main-content;
+    grid-template-columns: 45% 35% auto;
 }
 
-main .article {
-    grid-area: article;
-    background-color: var(--main-color1);
-}
-
-main .pricing-table {
-    grid-area: pricing-table;
-}
-
-.pricing-table table {
-    border: 1px solid;
-    width: 100%;
-    background-color: var(--main-color5);
-}
-
-.pricing-table tbody tr:nth-child(even) {
-    background-color: var(--main-color3);
-}
-
-.pricing-table th{
-    border-bottom: 1px solid;
+article {
+    padding: 5px;
 }
 
 aside {
+    margin: 0 5px;
+    height: 150px;
     grid-area: aside;
+    display: grid;
+    grid-template-columns: 45% 35% auto;
 }
 
 footer {
@@ -107,15 +85,66 @@ footer {
     width: 100%;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-areas: 
+        'titlebar titlebar titlebar'
+        'main-content main-content main-content'
+        'aside aside aside'
+        'footer footer footer';
+}
 
 .titlebar input, .titlebar .hamburger-container {
     display: none;
 }
 
+#article1 {
+    grid-area: article1;
+    background-color: var(--main-color1);
+}
+
+#article2 {
+    grid-area: article2;
+    background-color: var(--main-color2);
+}
+
+#article3 {
+    grid-area: article3;
+    background-color: var(--main-color3);
+}
+
+#article4 {
+    grid-area: article4;
+    background-color: var(--main-color4);
+}
+
+#article5 {
+    grid-area: article5;
+    background-color: var(--main-color5);
+}
+
+#article6 {
+    grid-area: article6;
+    background-color: var(--main-color6);
+}
+
+.grid-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+        'article2 article1 article3'
+        'article2 article1 article3'
+        'article5 article1 article3'
+        'article5 article1 article4'
+        'article5 article1 article4'
+        'article5 article1 article4'
+        'article5 article6 article6';
+}
+
 aside img {
     width: auto;
     height: 150px;
-    display: block;
 }
 
 footer .copy-right {
@@ -142,21 +171,33 @@ footer p {
     body {
         grid-template-areas: 
         'titlebar titlebar'
-        'main main'
+        'main-content main-content'
         'aside aside'
         'footer footer';
     }
 
+    #article4 {
+        display: none;
+    }
+
+    .grid-wrapper {
+        grid-template-columns: 50% auto;
+        grid-template-areas: 
+            'article1 article2'
+            'article1 article2'
+            'article3 article2'
+            'article3 article5'
+            'article3 article5'
+            'article3 article5'
+            'article6 article6'
+            'article6 article6';
+    }
+
     aside {
-        display: grid;
         grid-template-columns: 50% auto;
     }
 
-    aside img {
-        display: inline;
-    }
-
-    #aside1 {
+    #aside3 {
         display: none;
     }
 }
@@ -166,17 +207,20 @@ footer p {
     body {
         grid-template-areas: 
         'titlebar titlebar'
-        'main main'
+        'main-content main-content'
         'aside aside'
         'aside aside'
         'aside aside'
         'footer footer';
     }
 
-    main {
+    .grid-wrapper {
         grid-template-columns: auto;
         grid-template-areas: 
-            'pricing-table pricingtable';
+            'article5 article5'
+            'article3 article3'
+            'article2 article2'
+            'article1 article1';
     }
 
     aside {
@@ -184,7 +228,7 @@ footer p {
     }
 
 
-    .article, .navigation ul, .titlebar img {
+    #article4, #article6, .navigation ul, .titlebar img {
         display: none;
     }
 
