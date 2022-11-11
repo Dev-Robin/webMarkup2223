@@ -102,10 +102,11 @@ main .homeArticle header {
 }
 
 main .homeArticle p {
-    flex-basis: 90%;
+    flex-basis: 80%;
 }
 
 main .homeArticle img{
+    flex-basis: 100px;
     width: 100px;
     height: auto;
 }
