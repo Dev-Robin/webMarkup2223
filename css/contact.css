@@ -150,11 +150,6 @@ footer p {
     z-index: 9999;
 }
 
-/* tablet */
-@media screen and (min-width: 481px) and (max-width: 1279px){
-
-}
-
 /* mobile */
 @media screen and (max-width: 480px) {
     body {
